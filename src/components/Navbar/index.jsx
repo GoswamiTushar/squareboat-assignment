@@ -7,7 +7,7 @@ import style from './style.module.scss';
 
 export const Index = () => {
     const location = useLocation();
-    const [logoutTileOpen, setLogoutTileOpen] = useState(null);;
+    const [logoutTileOpen, setLogoutTileOpen] = useState(false);;
     const history = useHistory();
 
     const LogoutNotification = () => toast("You have successfully Logged Out");
@@ -15,19 +15,15 @@ export const Index = () => {
     const handleLogout = () => {
         if (localStorage.getItem('squareboatToken') !== null) {
             localStorage.removeItem('squareboatToken');
+            setLogoutTileOpen(false)
             history.push("/");
             LogoutNotification();
 
         }
     }
 
-    useEffect(() => {
-        setLogoutTileOpen(false)
-    }, []);
-
     const tileControl = () => {
         setLogoutTileOpen(!logoutTileOpen)
-        console.log(logoutTileOpen)
     }
 
     return (
@@ -72,14 +68,13 @@ export const Index = () => {
                                 </div>
                                 {
                                     logoutTileOpen ?
-                                        <Link
+                                        (<div
                                             onClick={handleLogout}
-                                            className={style["logout-tile"]}
-                                            to="/">
+                                            className={style["logout-tile"]}>
                                             Logout
-                                        </Link>
+                                        </div>)
                                         :
-                                        <></>
+                                        (void 0)
                                 }
                             </>
                             :
@@ -91,7 +86,7 @@ export const Index = () => {
                 autoClose={3000}
                 style={{ top: "5rem", padding: "2rem" }}
             />
-        </div>
+        </div >
     );
 }
 

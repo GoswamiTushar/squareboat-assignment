@@ -106,6 +106,16 @@
             z-index: 1;
             text-decoration: none;
             color: inherit;
+            animation: 0.3s ease-out slideLeftToRight;
+
+            @keyframes slideLeftToRight {
+                0% {
+                    transform: translateX(50%);
+                }
+                100% {
+                    transform: translate(0);
+                }
+            }
 
             &:hover {
                 cursor: pointer;
