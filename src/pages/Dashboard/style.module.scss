@@ -282,8 +282,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 4rem;
-            height: 4rem;
+            min-width: 4rem;
+            min-height: 4rem;
             border-radius: 50%;
             background: $color11;
             font-size: 1.5rem;
@@ -291,8 +291,8 @@
             color: $color01;
 
             @include mobile {
-                width: 3rem;
-                height: 3rem;
+                min-width: 3rem;
+                min-height: 3rem;
             }
         }
         .name-email {
