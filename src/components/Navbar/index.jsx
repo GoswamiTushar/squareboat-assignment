@@ -7,7 +7,7 @@ import style from './style.module.scss';
 
 export const Index = () => {
     const location = useLocation();
-    const [logoutTileOpen, setLogoutTileOpen] = useState(false);
+    const [logoutTileOpen, setLogoutTileOpen] = useState(null);;
     const history = useHistory();
 
     const LogoutNotification = () => toast("You have successfully Logged Out");
@@ -22,17 +22,7 @@ export const Index = () => {
     }
 
     useEffect(() => {
-        const onPageLoad = () => {
-            setLogoutTileOpen(true);
-        };
-
-        // Check if the page has already loaded
-        if (document.readyState === "complete") {
-            onPageLoad();
-        } else {
-            window.addEventListener("load", onPageLoad);
-            return () => window.removeEventListener("load", onPageLoad);
-        }
+        setLogoutTileOpen(false)
     }, []);
 
     const tileControl = () => {
