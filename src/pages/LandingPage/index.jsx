@@ -35,7 +35,6 @@ function index() {
                     <div className={style["why-us-card-container"]}>
                         {
                             CardContent.map((obj, i) => {
-                                console.log(obj);
                                 return (
                                     <>
                                         <div className={style["card"]}>

@@ -22,6 +22,7 @@ const Index = () => {
     const paginationCount = Math.ceil(recordsCount / pageLimit);
 
     const LoginNotification = () => toast("You have successfully logged in.")
+    const AuthorizationNotification = () => toast("Not authorized to access!")
 
 
     const history = useHistory()
@@ -59,12 +60,12 @@ const Index = () => {
     }
 
     useEffect(() => {
-        LoginNotification()
         if (localStorage.getItem('squareboatToken') === null) {
             history.push("/")
-            alert("Not authorized")
+            AuthorizationNotification();
         }
         else {
+            LoginNotification()
             var myHeaders = new Headers();
             myHeaders.append("Authorization", localStorage.getItem("squareboatToken"));
 
@@ -79,7 +80,6 @@ const Index = () => {
                 .then(resObj => {
                     if (resObj.code === 200) {
                         var data = resObj.data.data;
-                        // console.log(data);
                         var total = resObj.data.metadata.count;
                         var limit = resObj.data.metadata.limit;
                         setAllRecords(data);

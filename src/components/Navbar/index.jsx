@@ -1,5 +1,5 @@
 import Down from 'images/icons/down.svg';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,6 +21,25 @@ export const Index = () => {
         }
     }
 
+    useEffect(() => {
+        const onPageLoad = () => {
+            setLogoutTileOpen(true);
+        };
+
+        // Check if the page has already loaded
+        if (document.readyState === "complete") {
+            onPageLoad();
+        } else {
+            window.addEventListener("load", onPageLoad);
+            return () => window.removeEventListener("load", onPageLoad);
+        }
+    }, []);
+
+    const tileControl = () => {
+        setLogoutTileOpen(!logoutTileOpen)
+        console.log(logoutTileOpen)
+    }
+
     return (
         <div className={style.navigationbar}>
             <div className={style['nav-content']}>
@@ -37,12 +56,14 @@ export const Index = () => {
                 {
                     location.pathname === "/" ?
                         <>
-                            <div className={style["login-btn-container"]}>
-                                <Link to="/login">
-                                    <button className={style['login-btn']}>
-                                        Login/Signup
-                                    </button>
-                                </Link>
+                            <div>
+                                <div className={style["login-btn-container"]}>
+                                    <Link to="/login">
+                                        <button className={style['login-btn']}>
+                                            Login/Signup
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
                         </>
                         :
@@ -54,22 +75,21 @@ export const Index = () => {
                                     <span className={style['profile-bubble']}>R</span>
                                     <span
                                         className={style['expand-btn']}
-                                        onClick={() => {
-                                            setLogoutTileOpen(!logoutTileOpen)
-                                        }}
+                                        onClick={tileControl}
                                     >
                                         <img src={Down} alt={"Down arrow"} className={style['icon']} />
                                     </span>
                                 </div>
                                 {
                                     logoutTileOpen ?
-                                        <>
-                                            <div className={style["logout-tile"]} onClick={handleLogout}>
-                                                <Link style={{ textDecoration: "none", color: "inherit" }} to="/">Logout</Link>
-                                            </div>
-                                        </>
+                                        <Link
+                                            onClick={handleLogout}
+                                            className={style["logout-tile"]}
+                                            to="/">
+                                            Logout
+                                        </Link>
                                         :
-                                        ""
+                                        <></>
                                 }
                             </>
                             :

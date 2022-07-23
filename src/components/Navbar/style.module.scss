@@ -97,14 +97,15 @@
         .logout-tile {
             position: absolute;
             font-size: 1rem;
-            color: red;
             background: $color02;
             padding: 0.8rem 2rem;
             border-radius: 0.4rem;
             color: $color09;
             left: 92%;
             top: 110%;
-            z-index: 9;
+            z-index: 1;
+            text-decoration: none;
+            color: inherit;
 
             &:hover {
                 cursor: pointer;
