@@ -1,0 +1,446 @@
+@import "styles";
+
+.dashboard {
+    margin: 2rem 8rem;
+
+    @include mobile {
+        margin: 2rem 3rem;
+    }
+
+    @include tablet {
+        margin: 2rem 5rem;
+    }
+
+    .page-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 1rem 0 2rem 0;
+
+        @include tablet {
+            margin: 1rem 0;
+        }
+
+        @include mobile {
+            margin: 0.8rem 0;
+        }
+
+        .icon {
+            margin-right: 0.5rem;
+
+            @include tablet {
+                margin-right: 0.4rem;
+            }
+
+            @include mobile {
+                margin-right: 0.3rem;
+                width: 0.6rem;
+            }
+        }
+
+        .text {
+            color: $color04;
+            font-size: 0.8rem;
+
+            @include tablet {
+                font-size: 0.7rem;
+            }
+
+            @include mobile {
+                font-size: 0.6rem;
+            }
+        }
+    }
+
+    .page-title {
+        font-size: 2rem;
+        color: $color04;
+
+        @include tablet {
+            font-size: 1.8rem;
+        }
+
+        @include mobile {
+            font-size: 1.5rem;
+        }
+    }
+
+    .dashboard-container {
+        display: grid;
+        gap: 2rem;
+        margin: 1.5rem 0;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/5)), 1fr));
+
+        @include tablet {
+            gap: 1.5rem;
+        }
+        @include mobile {
+            gap: 1rem;
+        }
+
+        .no-jobs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            grid-column: 1/-1;
+            height: 50vh;
+
+            .header {
+                text-align: center;
+                font-size: 1.5rem;
+                color: $color01;
+                font-weight: 600;
+
+                @include tablet {
+                    font-size: 1.2rem;
+                }
+            }
+
+            .img-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 3rem;
+
+                @include mobile {
+                    margin: 2rem 0;
+                }
+
+                .img {
+                    width: 10rem;
+
+                    @include tablet {
+                        width: 8rem;
+                    }
+
+                    @include mobile {
+                        width: 6rem;
+                        margin: 3rem 0;
+                    }
+                }
+            }
+
+            .post-job-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .btn {
+                    font-size: 1.2rem;
+                    margin: 2rem;
+                    padding: 1rem 3rem;
+                    border: none;
+                    background: $color05;
+                    border-radius: 0.4rem;
+                    color: $color02;
+
+                    @include tablet {
+                        padding: 0.8rem 2rem;
+                        font-size: 0.8rem;
+                    }
+
+                    @include mobile {
+                        padding: 0.6rem 1.5rem;
+                        font-size: 0.8rem;
+                        border-radius: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+}
+
+.dashboard-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    color: $color09;
+    background: $color04;
+    box-shadow: 0px 3px 6px #557da526;
+    border-radius: 0.4rem;
+
+    .post-title {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+
+        @include tablet {
+            font-size: 1rem;
+        }
+
+        @include mobile {
+            font-size: 1rem;
+        }
+    }
+
+    .post-desc {
+        font-size: 1rem;
+        margin: 1rem 0;
+
+        @include tablet {
+            font-size: 0.8rem;
+        }
+
+        @include mobile {
+            font-size: 0.8rem;
+        }
+    }
+
+    .additional-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        margin-top: auto;
+
+        @include tablet {
+            margin-bottom: 0.8rem;
+            margin-top: auto;
+        }
+
+        @include mobile {
+            margin-bottom: 0.8rem;
+            margin-top: auto;
+        }
+
+        .location {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            .icon {
+                margin-right: 0.8rem;
+
+                @include tablet {
+                    width: 0.5rem;
+                    margin-right: 0.4rem;
+                }
+
+                @include mobile {
+                    width: 0.6rem;
+                    margin-right: 0.4rem;
+                }
+            }
+
+            .location-name {
+                @include tablet {
+                    font-size: 0.6rem;
+                }
+
+                @include mobile {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+
+        .btn-container {
+            .view-btn {
+                background: $color11;
+                border: none;
+                padding: 0.6rem 1.2rem;
+                border-radius: 0.4rem;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                @include tablet {
+                    font-size: 0.6rem;
+                    padding: 0.5rem 0.5rem;
+                    border-radius: 0.2rem;
+                }
+
+                @include mobile {
+                    font-size: 0.6rem;
+                    padding: 0.5rem 0.5rem;
+                    border-radius: 0.2rem;
+                }
+            }
+        }
+    }
+}
+
+.card {
+    width: 100%;
+    border: 1px solid $color10;
+    padding: 1rem;
+    background: $color04;
+
+    .applicant-info {
+        display: flex;
+        align-items: center;
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background: $color11;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: $color01;
+
+            @include mobile {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+        .name-email {
+            margin-left: 1.5rem;
+            color: $color01;
+            display: flex;
+            height: 4rem;
+            padding: 0.5rem 0;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: scroll;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            @include mobile {
+                margin-left: 1rem;
+            }
+
+            .name {
+                font-weight: 600;
+                font-size: 1rem;
+
+                @include mobile {
+                    font-size: 0.9rem;
+                }
+            }
+
+            .email {
+                @include mobile {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+    .skills-container {
+        margin: 1rem 0 0.5rem 0;
+        color: $color01;
+
+        .label {
+            font-size: 1rem;
+            font-weight: 600;
+
+            @include mobile {
+                font-size: 0.8rem;
+            }
+        }
+
+        .skills {
+            word-wrap: break-word;
+            @include mobile {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+.modal {
+    .content-area {
+        background: $color04;
+        border-radius: 1rem;
+        padding: 2rem 1.5rem;
+        min-width: 50rem;
+
+        @include mobile {
+            min-width: 10rem;
+            height: 40rem;
+        }
+
+        @include tablet {
+            min-width: 40rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid $color10;
+
+            .title {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1.5rem;
+                color: $color01;
+                font-size: 1.2rem;
+                font-weight: 700;
+
+                @include mobile {
+                    font-size: 0.9rem;
+                    margin-bottom: 1rem;
+                }
+            }
+
+            .close-btn {
+                margin-bottom: 1.5rem;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                @include mobile {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        .application-count {
+            margin: 1rem 0;
+            color: $color01;
+
+            @include mobile {
+                font-size: 0.9rem;
+            }
+        }
+
+        .applications {
+            height: 30rem;
+            padding: 1rem;
+            border-radius: 0.4rem;
+            background: $color14;
+            gap: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/3)), 1fr));
+            overflow-y: scroll;
+
+            .no-content {
+                margin: auto;
+
+                .img-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+
+                .text {
+                    margin: 1rem;
+                    text-align: center;
+                    color: $color01;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@import url("http://fonts.cdnfonts.com/css/luciana");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Poppins&display=swap");
+@import ".";
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	position: relative;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: $color02;
+	font-family: "Roboto", sans-serif;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}

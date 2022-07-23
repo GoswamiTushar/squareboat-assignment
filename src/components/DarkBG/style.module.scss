@@ -1,0 +1,34 @@
+@import "styles";
+
+.bg-formatted-landingpage {
+    height: 32rem;
+    width: 100%;
+    background: $color01;
+    position: absolute;
+
+    @include mobile {
+        height: 35rem;
+    }
+
+    @include tablet {
+        height: 19rem;
+    }
+}
+
+.bg-formatted-login {
+    @extend .bg-formatted-landingpage;
+
+    height: 40%;
+}
+
+.bg-formatted-dashboard {
+    @extend .bg-formatted-landingpage;
+    height: 14rem;
+    @include mobile {
+        height: 20rem;
+    }
+}
+
+.bg-formatted-post-job {
+    @extend .bg-formatted-login;
+}

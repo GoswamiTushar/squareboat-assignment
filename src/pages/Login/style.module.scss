@@ -1,0 +1,98 @@
+@import "styles";
+
+@import "styles";
+
+.login-card {
+    background: $color04;
+    padding: 2rem;
+    border-radius: 1.2rem;
+    min-width: 40rem;
+
+    @include mobile {
+        margin-top: 5rem;
+        min-width: auto;
+    }
+
+    .header {
+        color: $color09;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.4rem;
+        outline: none;
+
+        &:focus {
+            outline: none;
+            border: 1px solid $color05;
+        }
+    }
+
+    .normal-state {
+        border: 1px solid $color10;
+    }
+
+    .error-state {
+        border: 1px solid red;
+    }
+    label {
+        display: block;
+        font-size: 1rem;
+        color: $color09;
+        margin: 1rem 0;
+    }
+
+    .required {
+        color: red;
+        margin-left: 0.2rem;
+    }
+
+    .btn-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 3rem 0 4rem 0;
+
+        .login-btn {
+            padding: 1rem 3rem;
+            background: $color05;
+            color: $color04;
+            border: none;
+            font-size: 1.1rem;
+            border-radius: 0.4rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .signup-switch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color09;
+
+        .signup-link {
+            text-decoration: none;
+            color: $color05;
+            margin: 0 0.3rem;
+        }
+    }
+}
+
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem;
+
+    @include mobile {
+        padding: 2rem;
+    }
+}
