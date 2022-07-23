@@ -35,15 +35,16 @@ const Login = () => {
                         localStorage.setItem('squareboatToken', resObj.data.token);
                         history.push("/dashboard")
                     } else {
-                        // setEmail("");
-                        // setPassword("");
                         localStorage.clear();
                     }
                 })
-                .catch(error => console.log('error', error));
+                .catch(error => {
+                    console.log('error', error)
+                    setError(error)
+                });
         }
         else {
-            alert(error)
+            console.log("error");
         }
     }
     return (
@@ -54,7 +55,6 @@ const Login = () => {
             <div className={style["login-form"]}>
                 <label htmlFor="email">
                     Email address
-                    <span className={style["required"]}>*</span>
                 </label>
                 <input
                     className={error === null ? style['normal-state'] : style['error-state']}
@@ -68,7 +68,6 @@ const Login = () => {
                 />
                 <label htmlFor="pasword">
                     Password
-                    <span className={style["required"]}>*</span>
                 </label>
                 <input
                     className={error === null ? style['normal-state'] : style['error-state']}
@@ -81,6 +80,14 @@ const Login = () => {
                     }}
                 />
             </div>
+            {
+                error !== null ?
+                    <div className={style["error-message"]}>
+                        {error}
+                    </div>
+                    :
+                    ""
+            }
             <div className={style["btn-container"]}>
                 <button
                     onClick={handleLogin}

@@ -8,7 +8,6 @@ const validateEmail = email => {
 
 export const loginValidator = ({ email, password, setError}) => {
     let result = true;
-    console.log(password)
 
     if (!email?.length || !password?.length) {
         setError('All fields are mandatory.');

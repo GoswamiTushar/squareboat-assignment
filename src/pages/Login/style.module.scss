@@ -38,7 +38,8 @@
     }
 
     .error-state {
-        border: 1px solid red;
+        border: 1px solid $color15;
+        background: $color16;
     }
     label {
         display: block;
@@ -47,9 +48,12 @@
         margin: 1rem 0;
     }
 
-    .required {
-        color: red;
-        margin-left: 0.2rem;
+    .error-message {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 1rem;
+        color: $color17;
     }
 
     .btn-container {
