@@ -1,5 +1,5 @@
 import Down from 'images/icons/down.svg';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
