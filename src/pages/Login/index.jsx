@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
 import { loginValidator } from 'utils/validators';
-import style from './style.module.scss'
+import style from './style.module.scss';
 
 const Login = () => {
     const [email, setEmail] = useState(null);
@@ -48,57 +49,63 @@ const Login = () => {
         }
     }
     return (
-        <div className={style['login-card']}>
-            <div className={style["header"]}>
-                Login
-            </div>
-            <div className={style["login-form"]}>
-                <label htmlFor="email">
-                    Email address
-                </label>
-                <input
-                    className={error === null ? style['normal-state'] : style['error-state']}
-                    type="email"
-                    placeholder="Enter you email"
-                    name="email"
-                    value={email}
-                    onChange={(e) => {
-                        setEmail(e.target.value)
-                    }}
-                />
-                <label htmlFor="pasword">
-                    Password
-                </label>
-                <input
-                    className={error === null ? style['normal-state'] : style['error-state']}
-                    type="password"
-                    placeholder="Enter your password"
-                    name="password"
-                    value={password}
-                    onChange={(e) => {
-                        setPassword(e.target.value)
-                    }}
-                />
-            </div>
-            {
-                error !== null ?
-                    <div className={style["error-message"]}>
-                        {error}
-                    </div>
-                    :
-                    ""
-            }
-            <div className={style["btn-container"]}>
-                <button
-                    onClick={handleLogin}
-                    className={style['login-btn']}>
+        <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+        >
+            <div className={style['login-card']}>
+                <div className={style["header"]}>
                     Login
-                </button>
+                </div>
+                <div className={style["login-form"]}>
+                    <label htmlFor="email">
+                        Email address
+                    </label>
+                    <input
+                        className={error === null ? style['normal-state'] : style['error-state']}
+                        type="email"
+                        placeholder="Enter you email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => {
+                            setEmail(e.target.value)
+                        }}
+                    />
+                    <label htmlFor="pasword">
+                        Password
+                    </label>
+                    <input
+                        className={error === null ? style['normal-state'] : style['error-state']}
+                        type="password"
+                        placeholder="Enter your password"
+                        name="password"
+                        value={password}
+                        onChange={(e) => {
+                            setPassword(e.target.value)
+                        }}
+                    />
+                </div>
+                {
+                    error !== null ?
+                        <div className={style["error-message"]}>
+                            {error}
+                        </div>
+                        :
+                        ""
+                }
+                <div className={style["btn-container"]}>
+                    <button
+                        onClick={handleLogin}
+                        className={style['login-btn']}>
+                        Login
+                    </button>
+                </div>
+                <div className={style["signup-switch"]}>
+                    New to MyJobs?<Link className={style['signup-link']} to="/"> Create an account</Link>
+                </div>
             </div>
-            <div className={style["signup-switch"]}>
-                New to MyJobs?<Link className={style['signup-link']} to="/"> Create an account</Link>
-            </div>
-        </div>
+        </motion.div>
     )
 }
 

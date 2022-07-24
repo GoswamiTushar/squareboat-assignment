@@ -1,9 +1,9 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import CloseBtn from 'images/icons/close.svg'
-import CurriculumIcon from 'images/icons/curriculum.svg'
-import style from "./style.module.scss"
+import CloseBtn from 'images/icons/close.svg';
+import CurriculumIcon from 'images/icons/curriculum.svg';
+import * as React from 'react';
+import style from "./style.module.scss";
 
 const defaultStyle = {
     position: 'absolute',
@@ -88,6 +88,7 @@ const Index = ({ open, handleClose, clickedJobID, allApplications }) => {
                 </Box>
             </Modal>
         </div>
+
     );
 }
 

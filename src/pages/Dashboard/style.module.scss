@@ -72,6 +72,7 @@
         grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/5)), 1fr));
 
         @include tablet {
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/3)), 1fr));
             gap: 1.5rem;
         }
         @include mobile {
@@ -172,10 +173,6 @@
         font-size: 1.2rem;
         margin: 1rem 0;
 
-        @include tablet {
-            font-size: 1rem;
-        }
-
         @include mobile {
             font-size: 1rem;
         }
@@ -184,10 +181,6 @@
     .post-desc {
         font-size: 1rem;
         margin: 1rem 0;
-
-        @include tablet {
-            font-size: 0.8rem;
-        }
 
         @include mobile {
             font-size: 0.8rem;
@@ -200,11 +193,6 @@
         align-items: center;
         margin-bottom: 1rem;
         margin-top: auto;
-
-        @include tablet {
-            margin-bottom: 0.8rem;
-            margin-top: auto;
-        }
 
         @include mobile {
             margin-bottom: 0.8rem;
@@ -219,11 +207,6 @@
             .icon {
                 margin-right: 0.8rem;
 
-                @include tablet {
-                    width: 0.5rem;
-                    margin-right: 0.4rem;
-                }
-
                 @include mobile {
                     width: 0.6rem;
                     margin-right: 0.4rem;
@@ -231,8 +214,11 @@
             }
 
             .location-name {
-                @include tablet {
-                    font-size: 0.6rem;
+                overflow-x: scroll;
+                scrollbar-width: none;
+
+                &::-webkit-scrollbar {
+                    display: none;
                 }
 
                 @include mobile {
@@ -250,12 +236,6 @@
 
                 &:hover {
                     cursor: pointer;
-                }
-
-                @include tablet {
-                    font-size: 0.6rem;
-                    padding: 0.5rem 0.5rem;
-                    border-radius: 0.2rem;
                 }
 
                 @include mobile {

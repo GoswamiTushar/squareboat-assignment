@@ -1,5 +1,6 @@
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import { motion } from "framer-motion";
 import HomeIcon from "images/icons/home.svg";
 import Writing from "images/icons/writing.svg";
 import React, { useEffect, useState } from 'react';
@@ -102,46 +103,53 @@ const Index = () => {
             <div className={style["page-title"]}>
                 Jobs Posted By You
             </div>
-            <div className={style['dashboard-container']}>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                <div className={style['dashboard-container']}>
 
-                {
-                    allRecords?.length > 0 ?
-                        allRecords?.map((obj, index) => {
-                            return (
-                                < Jobcard
-                                    setAllApplications={setAllApplications}
-                                    allApplications={allApplications}
-                                    key={index}
-                                    jobID={obj.id}
-                                    jobTitle={obj.title}
-                                    jobDesc={obj.description}
-                                    jobLocation={obj.location}
-                                    setClickedJobID={setClickedJobID}
-                                    handleOpen={() => {
-                                        setOpen(true);
-                                        setClickedJobID(obj.id)
-                                    }}
-                                />
-                            )
-                        })
-                        :
-                        <div className={style['no-jobs']}>
-                            <div className={style["img-container"]}>
-                                <img src={Writing} alt="writing icon" className={style['img']} />
+                    {
+                        allRecords?.length > 0 ?
+                            allRecords?.map((obj, index) => {
+                                return (
+                                    < Jobcard
+                                        setAllApplications={setAllApplications}
+                                        allApplications={allApplications}
+                                        key={index}
+                                        jobID={obj.id}
+                                        jobTitle={obj.title}
+                                        jobDesc={obj.description}
+                                        jobLocation={obj.location}
+                                        setClickedJobID={setClickedJobID}
+                                        handleOpen={() => {
+                                            setOpen(true);
+                                            setClickedJobID(obj.id)
+                                        }}
+                                    />
+                                )
+                            })
+                            :
+                            <div className={style['no-jobs']}>
+                                <div className={style["img-container"]}>
+                                    <img src={Writing} alt="writing icon" className={style['img']} />
+                                </div>
+                                <div className={style["header"]}>
+                                    Jobs posted by you will be shown here
+                                </div>
+                                <div className={style["post-job-btn"]}>
+                                    <Link to="/post-a-job">
+                                        <button className={style['btn']}>Post a job</button>
+                                    </Link>
+                                </div>
                             </div>
-                            <div className={style["header"]}>
-                                Jobs posted by you will be shown here
-                            </div>
-                            <div className={style["post-job-btn"]}>
-                                <Link to="/post-a-job">
-                                    <button className={style['btn']}>Post a job</button>
-                                </Link>
-                            </div>
-                        </div>
-                }
+                    }
 
-                <Modal allApplications={allApplications} clickedJobID={clickedJobID} open={open} handleClose={handleClose} />
-            </div>
+                    <Modal allApplications={allApplications} clickedJobID={clickedJobID} open={open} handleClose={handleClose} />
+                </div>
+            </motion.div>
+
             <div className={style["pagination"]}>
                 <Stack spacing={2}>
                     <Pagination classes={style['pagination-item']} page={currPage} onChange={pageChange} count={paginationCount} variant="outlined" shape="rounded" />
